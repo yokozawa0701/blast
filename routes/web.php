@@ -21,6 +21,10 @@ if (config('blast.enabled')) {
 
     $sb_route = Str::remove($app_url, $sb_url);
 
+    Route::get($sb_route, function () {
+        return abort(403, 'To access blast go to localhost:6006');
+    });
+
     Route::get($sb_route . '/{name?}', StoryController::class)->where(
         'name',
         '.*',
