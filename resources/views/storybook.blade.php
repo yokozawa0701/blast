@@ -20,6 +20,8 @@
 <body>
     @include('stories.'. $component)
 
+    @stack('scripts')
+
     @if (!empty($js))
         @foreach ($js as $key => $asset)
             @php
